@@ -5,7 +5,6 @@
 <h1 class="text-center">Formulario de Registro e Inicio de sesión</h1>
 <hr class="border border-secondary border-2 opacity-50">
 
-<!-- LAS VALIDACIONES SE CONFIGURAN EN LAS CLASES, EN ESTE CASO EN CLASE_USUARIOS-->
 <div>
     <div>
         {% with messages = get_flashed_messages() %}
@@ -18,24 +17,19 @@
             {% endwith %}
     </div>
 </div>
-
+<h2 class="text-info">TV Shows!</h2>
 <div>
     <div class="row">
         <div class="col">
             <h4>Crea tu usuario</h4>
-                    <!--REVISA ACTION ACA U MAS ABAJO. COLOCAR MISMA RUTA O CAMBIARLA-->
             <form class="row g-3" action='/crear' method='post'>
                 <div class="col-md-9">
                     <label for='name' class="form-label">Nombre</label>
-                    <input type='text' class="form-control" name='nombre' required>
+                    <input type='text' class="form-control" name='first_name' required>
                 </div>
                 <div class="col-md-9">
                     <label for='name' class="form-label">Apellido</label>
-                    <input type='text' class="form-control" name='apellido' required>
-                </div>
-                <div class="col-md-9">
-                    <label for='name' class="form-label">Fecha de Nacimiento</label>
-                    <input type='date' class="form-control" name='fnacimiento'>
+                    <input type='text' class="form-control" name='last_name' required>
                 </div>
                 <div class="col-md-9">
                     <label for='name' class="form-label">Email</label>
@@ -44,7 +38,7 @@
 
                 <div class="col-md-9">
                     <label for='name' class="form-label">Contraseña</label>
-                    <input type='password' class="form-control" name='contraseña'
+                    <input type='password' class="form-control" name='password'
                         placeholder="Min 6 caracteres, numero, mayuscula y caracter especial" required>
                 </div>
                 <div class="col-md-9">
@@ -61,19 +55,16 @@
             </form>
         </div>
 
-        <!--EMPIEZA LA PARTE DE INICIO DE SESION -->
-
         <div class="col">
             <h4>Ingresa tu usuario</h4>
-                                    <!--REVISA ACTION. COLOCAR MISMA RUTA O CAMBIARLA-->
             <form class="row g-3" action='/ingresar' method='post'>
                 <div class="col-md-9">
                     <label for='email' class="form-label">Email</label>
                     <input type='text' class="form-control" name='email' required>
                 </div>
                 <div class="col-md-9">
-                    <label for='contraseña' class="form-label">Contraseña</label>
-                    <input type='password' class="form-control" name='contraseña' required>
+                    <label for='password' class="form-label">Contraseña</label>
+                    <input type='password' class="form-control" name='password' required>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md">
                     <button type="submit" class="btn btn-primary me-md-2">Ingresar</button>

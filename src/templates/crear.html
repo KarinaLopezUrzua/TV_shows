@@ -1,0 +1,54 @@
+{% extends "index.html"%}
+
+{% block contenido %}
+
+<div>
+    <h2 class="text-center">Crea tu TV Show</h2>
+    <a class="d-grid gap-2 d-md-flex justify-content-md-end" href="/borrar_sesion">Cerrar sesión</a>
+</div>
+<hr class="border border-secondary border-2 opacity-50">
+
+<div>
+    <div>
+        {% with messages_info = get_flashed_messages(category_filter=['crear']) %}
+        {% if messages_info %}
+        {% for crear in messages_info %}
+        <p class="alert alert-danger text-center">
+            {{crear}}
+        </p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+
+<form class="row g-3" action='/crear_show' method='post'>
+    <div class="row mb-2">
+        <div class="col">
+            <div class="col-md-7"><br>
+                <label for='name' class="form-label">Title</label>
+                <input type='text' class="form-control" name='title' required>
+            </div>
+            <div class="col-md-7">
+                <label for='name' class="form-label">Network</label>
+                <input type='text' class="form-control" name='network' required>
+            </div>
+            <div class="col-md-7">
+                <label for='fecha_creacion' class="form-label">Release Date</label>
+                <input type='date' class="form-control" name='release_date' required>
+            </div><br>
+            <div class="col-md-7">
+                <label for='descripcion' class="form-label">Description</label>
+                <textarea class="form-control" name='description' rows="4" cols="40" required></textarea>
+            </div>
+
+        </div>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md">
+        <input type="hidden" value="{{session['id_usuario']}}" name="usuario_id">
+        <button type="submit" class="btn btn-success me-md-2">Crear Show</button>
+        <a href="/usuario/{{session['id_usuario']}}" class="btn btn-primary">Volver atras</a>
+    </div>
+</form>
+
+{% endblock %}
