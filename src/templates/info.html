@@ -1,0 +1,54 @@
+{% extends "index.html"%}
+
+{% block contenido %}
+
+<h1 class="text-center">Información de todas las Recetas</h1>
+<a class="d-grid gap-2 d-md-flex justify-content-md-end" href="/borrar_sesion" >Cerrar sesión</a> <!--ENLACE-->
+<hr class="border border-secondary border-2 opacity-50">
+
+<h2>Bienvenido </h2> <!--ACA IRIA EL NOMBRE DEL USUARIO. Bienvenido {{session["nombre_usuario"]}}-->
+
+
+<table class="table">
+    <thead class="table-info">
+        <tr>
+            <td>Nombre</td>
+            <td>Menor a 30 min</td>
+            <td>Creador</td>
+            <td>Fecha de registro</td>
+            <td>Acciones</td>
+        </tr>
+    </thead> <!--HASTA ACA ES EL ENCABEZADO DE UNA TABLA-->
+<!--
+    <tbody> EMPIEZA EL CUERPO DE LA TABLA
+        {% for receta in lista_recetas: %} {# lista_recetas es la variable creada en controlador#}
+        <tr>
+            <td>{{receta.nombre}}</td> {# receta(variable).nombre(atributo de los objetos de la clase Usuarios)#}
+            {% if receta. tiempo_preparacion == "1" %}
+            <td>Si</td>
+            {% else %}
+            <td>No</td>
+            {% endif %}
+            <td>{{receta.usuario[0].nombre}}</td>
+            <td>{{receta.created_at}}</td>
+            <td> <ACA ES CON LOS ENLACES AL FINAL, EL CICLO ES PARA DETERMINAR LA INFORMACION QUE PUEDE EDITAR SI ES QUE ES EL QUE ESTA LOGUEADO Y CREADOR
+                {% if receta.usuario_id == session['id_usuario'] %}
+                <a href="/ver/{{receta.id}}">Ver</a>
+                <a href="/editar/{{receta.id}}">Editar</a>
+                <a href="/eliminar/{{receta.id}}">Eliminar</a>
+                {% else %}
+                <a href="/ver/{{receta.id}}">Ver</a>
+                {% endif %}
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+-->
+
+<div> <!--BOTONES. REVISAR SI ESTA BIEN LOS ENLACES-->
+    <a href="/" class="btn btn-primary">Volver al inicio</a>
+    <a href="/crear_receta" class="btn btn-secondary">Crear una receta</a>
+</div>
+{% endblock %}
