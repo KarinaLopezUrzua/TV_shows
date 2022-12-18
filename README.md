@@ -1,5 +1,3 @@
-# examen_cd
- examen coding dojo karina lopez
+# Pagina con Formulario
+ Pagina con registro e inicio de sesion para regisrtar TV show favoritos de uno mismo y de otras personas
 
- IP QUE VA LA PAGINA DEL EXAMEN:
- 44.202.100.112
